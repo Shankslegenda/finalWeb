@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Oasis music fan archive and interactive playlist">
+    <title>The Band | Oasis Archive</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="artists">
+    <header class="site-header">
+      <a class="brand" href="index.html">oasis<p> / archive</p></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="songs.html" class="nav-link">Playlist</a>
+        <a href="albums.html" class="nav-link">Albums</a>
+        <a href="artists.html" class="nav-link">Band</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="utility" id="theme-toggle">☾ Theme</button>
+        <button type="button" class="utility" id="auth-toggle">Sign in</button>
+      </div>
+    </header>
+    <main class="site-main">
+      <div class="page-heading">
+        <p class="eyebrow">THE PEOPLE BEHIND THE SOUND</p>
+        <h1>THE BAND.</h1>
+        <p>Meet some of the musicians who shaped the Oasis story.</p>
+      </div>
+      <div class="people-grid">
+        <article>
+          <p class="person-number">01 / VOCALS</p>
+          <h2>Liam Gallagher</h2>
+          <p>Lead vocalist and co-founder, known for his distinctive voice and stage presence.</p>
+        </article>
+        <article>
+          <p class="person-number">02 / SONGWRITING</p>
+          <h2>Noel Gallagher</h2>
+          <p>Principal songwriter, lead guitarist and vocalist behind many of the band's biggest songs.</p>
+        </article>
+        <article>
+          <p class="person-number">03 / GUITAR</p>
+          <h2>Paul “Bonehead” Arthurs</h2>
+          <p>Founding member and rhythm guitarist during the band's early years.</p>
+        </article>
+        <article>
+          <p class="person-number">04 / GUITAR</p>
+          <h2>Gem Archer</h2>
+          <p>Guitarist who joined Oasis in 1999 and contributed to its later sound.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p>OASIS / FAN ARCHIVE · Student project, not affiliated with the band.</p>
+      <p>AI assistance: OpenAI ChatGPT supported layout and code development; group members must review and credit contributions in the report.</p>
+    </footer>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form id="auth-form" novalidate>
+        <button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button>
+        <h2>Fan sign in</h2>
+        <p>Local demo sign-in. No password is collected or sent to a server.</p>
+        <label for="auth-name">Your name</label>
+        <input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <p id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </dialog>
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/shared.js"></script>
+  </body>
+</html>

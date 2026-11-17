@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Oasis music fan archive and interactive playlist">
+    <title>Discover | Oasis Archive</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="discover">
+    <header class="site-header">
+      <a class="brand" href="index.html">oasis<p> / archive</p></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="songs.html" class="nav-link">Playlist</a>
+        <a href="albums.html" class="nav-link">Albums</a>
+        <a href="artists.html" class="nav-link">Band</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="utility" id="theme-toggle">☾ Theme</button>
+        <button type="button" class="utility" id="auth-toggle">Sign in</button>
+      </div>
+    </header>
+    <main class="site-main">
+      <div class="page-heading">
+        <p class="eyebrow">OASIS RELEASES</p>
+        <h1>DISCOVER.</h1>
+        <p>Search a curated list of Oasis albums and compilations.</p>
+      </div>
+      <section class="release-panel">
+        <form id="release-search-form" class="release-search-form">
+          <label for="release-query">Search albums or releases</label>
+          <div class="search-row">
+            <input id="release-query" value="Oasis" required minlength="2" maxlength="80" placeholder="Oasis">
+            <button class="primary-button" type="submit">Search</button>
+          </div>
+        </form>
+        <p id="release-status" role="status" aria-live="polite"></p>
+        <div id="release-results" class="result-grid"></div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>OASIS / FAN ARCHIVE · Student project, not affiliated with the band.</p>
+      <p>AI assistance: OpenAI ChatGPT supported layout and code development; group members must review and credit contributions in the report.</p>
+    </footer>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form id="auth-form" novalidate>
+        <button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button>
+        <h2>Fan sign in</h2>
+        <p>Local demo sign-in. No password is collected or sent to a server.</p>
+        <label for="auth-name">Your name</label>
+        <input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <p id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </dialog>
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/shared.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Oasis music fan archive and interactive playlist">
+    <title>Home | Oasis Archive</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="index">
+    <header class="site-header">
+      <a class="brand" href="index.html">oasis<p> / archive</p></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="songs.html" class="nav-link">Playlist</a>
+        <a href="albums.html" class="nav-link">Albums</a>
+        <a href="artists.html" class="nav-link">Band</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="utility" id="theme-toggle">☾ Theme</button>
+        <button type="button" class="utility" id="auth-toggle">Sign in</button>
+      </div>
+    </header>
+    <main class="site-main">
+      <section class="home-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">THE SOUND OF MANCHESTER · EST. 1991</p>
+          <h1>DON'T LOOK BACK <em>IN ANGER.</em></h1>
+          <div class="hero-lyrics">
+            <p>And so, Sally can wait</p>
+            <p>She knows it's too late as we're walkin' on by</p>
+            <p>Her soul slides away</p>
+            <p>"But don't look back in anger," I heard you say</p>
+          </div>
+          <div class="hero-buttons">
+            <a class="primary-button" href="songs.html">Explore the playlist ↗</a>
+            <a class="outline-button" href="discover.html">Discover music</a>
+          </div>
+        </div>
+        <img src="images/allAlbums.jpg" alt="Oasis album artwork collage">
+      </section>
+      <section class="intro-section">
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2>Three records. One legendary sound.</h2>
+        <div class="album-grid">
+          <a class="album-card" href="albums.html">
+            <img src="images/definitely-maybe.jpg" alt="Definitely Maybe">
+            <strong>Definitely Maybe</strong>
+            <p>1994 / Debut</p>
+          </a>
+          <a class="album-card" href="albums.html">
+            <img src="images/morning-glory.jpg" alt="Morning Glory">
+            <strong>(What's the Story) Morning Glory?</strong>
+            <p>1995 / Breakthrough</p>
+          </a>
+          <a class="album-card" href="albums.html">
+            <img src="images/be-here-now.jpg" alt="Be Here Now">
+            <strong>Be Here Now</strong>
+            <p>1997 / Third album</p>
+          </a>
+        </div>
+      </section>
+      <section class="feature-banner">
+        <p class="eyebrow">BUILD YOUR COLLECTION</p>
+        <h2>Find your next favourite track.</h2>
+        <p>Search, filter, add, edit and remove songs from your personal demo playlist.</p>
+        <a class="primary-button" href="songs.html">Open playlist →</a>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>OASIS / FAN ARCHIVE · Student project, not affiliated with the band.</p>
+      <p>AI assistance: OpenAI ChatGPT helped us to collect information about songs and albums.</p>
+    </footer>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form id="auth-form" novalidate>
+        <button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button>
+        <h2>Fan sign in</h2>
+        <p>Local demo sign-in. No password is collected or sent to a server.</p>
+        <label for="auth-name">Your name</label>
+        <input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <p id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </dialog>
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/shared.js"></script>
+  </body>
+</html>

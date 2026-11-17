@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Oasis music fan archive and interactive playlist">
+    <title>Albums | Oasis Archive</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="albums">
+    <header class="site-header">
+      <a class="brand" href="index.html">oasis<p> / archive</p></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="songs.html" class="nav-link">Playlist</a>
+        <a href="albums.html" class="nav-link">Albums</a>
+        <a href="artists.html" class="nav-link">Band</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="utility" id="theme-toggle">☾ Theme</button>
+        <button type="button" class="utility" id="auth-toggle">Sign in</button>
+      </div>
+    </header>
+    <main class="site-main">
+      <div class="page-heading">
+        <p class="eyebrow">DISCOGRAPHY</p>
+        <h1>THE RECORDS.</h1>
+        <p>Three albums that helped define a generation.</p>
+      </div>
+      <div class="album-grid large">
+        <article class="album-card">
+          <button class="album-open" data-image="images/definitely-maybe.jpg" data-title="Definitely Maybe">
+            <img src="images/definitely-maybe.jpg" alt="Definitely Maybe album cover">
+          </button>
+          <strong>Definitely Maybe</strong>
+          <p>1994 · Debut studio album</p>
+          <p>Raw guitars, bold ambition and the beginnings of Britpop history.</p>
+        </article>
+        <article class="album-card">
+          <button class="album-open" data-image="images/morning-glory.jpg" data-title="(What's the Story) Morning Glory?">
+            <img src="images/morning-glory.jpg" alt="Morning Glory album cover">
+          </button>
+          <strong>(What's the Story) Morning Glory?</strong>
+          <p>1995 · Second studio album</p>
+          <p>Anthems including Wonderwall and Don't Look Back in Anger.</p>
+        </article>
+        <article class="album-card">
+          <button class="album-open" data-image="images/be-here-now.jpg" data-title="Be Here Now">
+            <img src="images/be-here-now.jpg" alt="Be Here Now album cover">
+          </button>
+          <strong>Be Here Now</strong>
+          <p>1997 · Third studio album</p>
+          <p>A huge, ambitious record with Stand By Me and Don't Go Away.</p>
+        </article>
+      </div>
+      <dialog id="album-dialog" class="album-dialog">
+        <button type="button" id="album-close" class="close-dialog">×</button>
+        <img id="album-large" alt="Expanded album artwork">
+        <p id="album-caption"></p>
+      </dialog>
+    </main>
+    <footer class="site-footer">
+      <p>AI assistance: OpenAI ChatGPT helped us to collect information about songs and albums.</p>
+    </footer>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form id="auth-form" novalidate>
+        <button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button>
+        <h2>Fan sign in</h2>
+        <p>Local demo sign-in. No password is collected or sent to a server.</p>
+        <label for="auth-name">Your name</label>
+        <input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <p id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </dialog>
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/shared.js"></script>
+  </body>
+</html>

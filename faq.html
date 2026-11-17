@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Oasis music fan archive and interactive playlist">
+    <title>FAQ | Oasis Archive</title>
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="faq">
+    <header class="site-header">
+      <a class="brand" href="index.html">oasis<p> / archive</p></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="songs.html" class="nav-link">Playlist</a>
+        <a href="albums.html" class="nav-link">Albums</a>
+        <a href="artists.html" class="nav-link">Band</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="utility" id="theme-toggle">☾ Theme</button>
+        <button type="button" class="utility" id="auth-toggle">Sign in</button>
+      </div>
+    </header>
+    <main class="site-main">
+      <div class="page-heading">
+        <p class="eyebrow">GOOD TO KNOW</p>
+        <h1>QUESTIONS.</h1>
+        <p>Everything you need to know about the Oasis Archive.</p>
+      </div>
+      <section class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What is Oasis?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>Oasis is an English rock band formed in Manchester in 1991, associated with the Britpop movement.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Which album was released first?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>Definitely Maybe was released in 1994.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I add songs to the playlist?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>Yes. Open Playlist and use the form to add, edit or remove demo songs.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does the website play full songs?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>No. This fan archive is for discovery and playlist management, not licensed music streaming.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Where does the live music information come from?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>The Discover page searches a curated list of Oasis releases included with the website.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Does sign-in create a real account?<p class="faq-indicator">+</p></button>
+          <div class="faq-answer">
+            <p>No. This is a browser-only demonstration using localStorage.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>OASIS / FAN ARCHIVE · Student project.</p>
+      <p>AI assistance: OpenAI ChatGPT helped us to collect information about songs and albums.</p>
+    </footer>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <form id="auth-form" novalidate>
+        <button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button>
+        <h2>Fan sign in</h2>
+        <label for="auth-name">Your name</label>
+        <input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name">
+        <label for="auth-email">Email</label>
+        <input id="auth-email" type="email" required placeholder="you@example.com">
+        <p id="auth-error" role="alert"></p>
+        <button class="primary-button" type="submit">Sign in</button>
+      </form>
+    </dialog>
+    <script src="vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/shared.js"></script>
+  </body>
+</html>

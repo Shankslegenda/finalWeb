@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Oasis music fan archive and interactive playlist"><title>Playlist | Oasis Archive</title><link rel="stylesheet" href="vendor/bootstrap-5.3.3.min.css"><link rel="stylesheet" href="style.css"></head><body data-page="songs"><header class="site-header"><a class="brand" href="index.html">oasis<span> / archive</span></a><nav aria-label="Main navigation"><a href="index.html" class="nav-link">Home</a><a href="songs.html" class="nav-link">Playlist</a><a href="albums.html" class="nav-link">Albums</a><a href="artists.html" class="nav-link">Band</a><a href="discover.html" class="nav-link">Discover</a><a href="faq.html" class="nav-link">FAQ</a></nav><div class="header-actions"><button type="button" class="utility" id="theme-toggle">☾ Theme</button><button type="button" class="utility" id="auth-toggle">Sign in</button></div></header><main class="site-main"><div class="page-heading"><span class="eyebrow">YOUR COLLECTION</span><h1>THE PLAYLIST.</h1><p>Search Oasis classics and manage your own track list.</p></div><section class="section legacy-section" id="songs">
+<h3>Favorite Songs</h3>
+<p>Search the playlist, choose an album, or add your own favorite Oasis songs.</p>
+<label class="form-label" for="song-search">Search by song or album</label>
+<input class="form-control mb-3" id="song-search" placeholder="Try Stand By Me" type="search"/>
+<div aria-label="Filter songs by album" class="d-flex flex-wrap gap-2 mb-3" id="category-filters" role="group">
+<button aria-pressed="true" class="btn btn-outline-secondary active" data-category="all" type="button">All</button>
+<button aria-pressed="false" class="btn btn-outline-secondary" data-category="Definitely Maybe" type="button">Definitely Maybe</button>
+<button aria-pressed="false" class="btn btn-outline-secondary" data-category="(What's the Story) Morning Glory?" type="button">Morning Glory</button>
+<button aria-pressed="false" class="btn btn-outline-secondary" data-category="Be Here Now" type="button">Be Here Now</button>
+</div>
+<p class="text-secondary" id="song-count" role="status"></p>
+<div class="table-responsive">
+<table class="table table-bordered align-middle">
+<caption class="visually-hidden">Oasis playlist with edit and delete actions</caption>
+<thead><tr><th scope="col">#</th><th scope="col">Song</th><th scope="col">Album</th><th scope="col">Actions</th></tr></thead>
+<tbody id="song-rows"></tbody>
+</table>
+</div>
+<p id="song-status" role="status"></p>
+<h4 id="song-form-title">Add a song</h4>
+<form id="song-form" novalidate="">
+<div class="row g-3">
+<div class="col-md-6">
+<label class="form-label" for="song-title">Song title</label>
+<input aria-describedby="song-title-feedback" class="form-control" id="song-title" maxlength="120" required="" type="text"/>
+<div aria-live="polite" class="invalid-feedback" id="song-title-feedback"></div>
+</div>
+<div class="col-md-6">
+<label class="form-label" for="song-album">Album</label>
+<select aria-describedby="song-album-feedback" class="form-select" id="song-album" required="">
+<option value="">Choose an album</option>
+<option>Definitely Maybe</option>
+<option>(What's the Story) Morning Glory?</option>
+<option>Be Here Now</option>
+</select>
+<div aria-live="polite" class="invalid-feedback" id="song-album-feedback"></div>
+</div>
+</div>
+<div class="d-flex flex-wrap gap-2 mt-3">
+<button class="btn btn-oasis" id="save-song" type="submit">Add song</button>
+<button class="btn btn-outline-secondary" hidden="" id="cancel-edit" type="button">Cancel editing</button>
+</div>
+</form>
+<p class="small-note mt-3">Demo playlist: changes last until this page is refreshed.</p>
+<noscript><p class="alert alert-warning">Enable JavaScript to view and edit the playlist.</p></noscript>
+</section><dialog aria-describedby="delete-question" aria-labelledby="delete-heading" id="delete-dialog">
+<h3 id="delete-heading">Delete song?</h3>
+<p id="delete-question"></p>
+<form class="d-flex gap-2" method="dialog">
+<button autofocus="" class="btn btn-outline-secondary" value="cancel">Cancel</button>
+<button class="btn btn-danger" value="delete">Delete song</button>
+</form>
+</dialog><p class="note">This is a demo playlist; changes reset on refresh.</p></main><footer class="site-footer"><span>OASIS / FAN ARCHIVE · Student project, not affiliated with the band.</span><span>AI assistance: OpenAI ChatGPT supported layout and code development; group members must review and credit contributions in the report.</span></footer><dialog id="auth-dialog" class="auth-dialog"><form id="auth-form" novalidate><button type="button" class="close-dialog" id="auth-close" aria-label="Close">×</button><h2>Fan sign in</h2><p>Local demo sign-in. No password is collected or sent to a server.</p><label for="auth-name">Your name</label><input id="auth-name" type="text" minlength="2" maxlength="40" required placeholder="Your name"><label for="auth-email">Email</label><input id="auth-email" type="email" required placeholder="you@example.com"><p id="auth-error" role="alert"></p><button class="primary-button" type="submit">Sign in</button></form></dialog><script src="vendor/jquery-3.7.1.min.js"></script><script src="js/shared.js"></script><script src="js/script.js"></script></body></html>
