@@ -26,20 +26,20 @@
     </header>
     <main class="site-main">
       <div class="page-heading">
-        <p class="eyebrow">OASIS RELEASES</p>
+        <p class="eyebrow">LIVE MUSIC DATA</p>
         <h1>DISCOVER.</h1>
-        <p>Search a curated list of Oasis albums and compilations.</p>
+        <p>Search for Oasis releases using the public MusicBrainz API.</p>
       </div>
-      <section class="release-panel">
-        <form id="release-search-form" class="release-search-form">
-          <label for="release-query">Search albums or releases</label>
+      <section class="api-panel">
+        <form id="api-form" class="api-form">
+          <label for="api-query">Search albums or releases</label>
           <div class="search-row">
-            <input id="release-query" value="Oasis" required minlength="2" maxlength="80" placeholder="Oasis">
+            <input id="api-query" value="Oasis" required minlength="2" maxlength="80" placeholder="Oasis">
             <button class="primary-button" type="submit">Search</button>
           </div>
         </form>
-        <p id="release-status" role="status" aria-live="polite"></p>
-        <div id="release-results" class="result-grid"></div>
+        <p id="api-status" role="status" aria-live="polite"></p>
+        <div id="api-results" class="result-grid"></div>
       </section>
     </main>
     <footer class="site-footer">
