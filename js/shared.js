@@ -88,53 +88,70 @@
   });
   $('#album-close').on('click', () => document.getElementById('album-dialog').close());
 
-  const releaseForm = document.getElementById('release-search-form');
-  if (releaseForm) {
-    const releases = [
-      { title: 'Definitely Maybe', year: '1994', type: 'Studio album' },
-      { title: "(What's the Story) Morning Glory?", year: '1995', type: 'Studio album' },
-      { title: 'Be Here Now', year: '1997', type: 'Studio album' },
-      { title: 'The Masterplan', year: '1998', type: 'Compilation album' },
-      { title: 'Standing on the Shoulder of Giants', year: '2000', type: 'Studio album' },
-      { title: 'Heathen Chemistry', year: '2002', type: 'Studio album' },
-      { title: "Don't Believe the Truth", year: '2005', type: 'Studio album' },
-      { title: 'Stop the Clocks', year: '2006', type: 'Compilation album' },
-      { title: 'Dig Out Your Soul', year: '2008', type: 'Studio album' },
-      { title: 'Time Flies... 1994–2009', year: '2010', type: 'Compilation album' }
-    ];
-    const results = document.getElementById('release-results');
-    const status = document.getElementById('release-status');
-    const query = document.getElementById('release-query');
+  const apiForm = document.getElementById('api-form');
+  if (apiForm) {
+    const results = document.getElementById('api-results');
+    const status = document.getElementById('api-status');
+    const query = document.getElementById('api-query');
+    let controller;
 
-    function searchReleases(searchTerm) {
-      const normalizedQuery = searchTerm.trim().toLocaleLowerCase();
-      const matches = releases.filter((release) =>
-        [release.title, release.year, release.type, 'Oasis'].some((value) =>
-          value.toLocaleLowerCase().includes(normalizedQuery)
-        )
-      );
+    async function searchReleases() {
+      const searchTerm = query.value.trim();
+      if (searchTerm.length < 2) {
+        status.textContent = 'Enter at least two characters.';
+        return;
+      }
 
-      status.textContent = matches.length
-        ? matches.length + ' releases found.'
-        : 'No releases found. Try a title or year.';
+      if (controller) controller.abort();
+      controller = new AbortController();
+      status.textContent = 'Loading releases from MusicBrainz…';
       results.replaceChildren();
 
-      matches.forEach((release) => {
-        const card = document.createElement('article');
-        card.className = 'result-card';
-        const title = document.createElement('strong');
-        title.textContent = release.title;
-        const detail = document.createElement('small');
-        detail.textContent = release.year + ' · ' + release.type;
-        card.append(title, detail);
-        results.append(card);
-      });
+      try {
+        const releaseQuery = searchTerm.toLowerCase() === 'oasis'
+          ? 'artist:"Oasis"'
+          : 'artist:"Oasis" AND releasegroup:"' + searchTerm.replace(/"/g, '') + '"';
+        const url = 'https://musicbrainz.org/ws/2/release-group/?query=' +
+          encodeURIComponent(releaseQuery) + '&fmt=json&limit=18';
+        const response = await fetch(url, {
+          signal: controller.signal,
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw Error('HTTP ' + response.status);
+
+        const data = await response.json();
+        if (!Array.isArray(data['release-groups'])) {
+          throw Error('Unexpected API response');
+        }
+
+        const releases = data['release-groups'];
+        status.textContent = releases.length
+          ? releases.length + ' releases found.'
+          : 'No releases found. Try another title.';
+        releases.forEach((release) => {
+          const card = document.createElement('article');
+          card.className = 'result-card';
+          const title = document.createElement('strong');
+          title.textContent = release.title || 'Untitled';
+          const detail = document.createElement('small');
+          detail.textContent = [
+            release['first-release-date'] || 'Date unknown',
+            release['primary-type'] || 'Release'
+          ].join(' · ');
+          card.append(title, detail);
+          results.append(card);
+        });
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        status.textContent =
+          'Unable to load live data (' + error.message + '). Check your internet connection and try again.';
+      }
     }
 
-    releaseForm.addEventListener('submit', (event) => {
+    apiForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      searchReleases(query.value);
+      searchReleases();
     });
-    searchReleases(query.value);
+    searchReleases();
   }
 })();
