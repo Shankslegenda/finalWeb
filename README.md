@@ -16,8 +16,8 @@ FinalWeb is a collaborative, multi-page web application developed as a final gro
 - **Public API Integration:** Fetches and dynamically renders JSON data via JavaScript fetch() with interactive search/filtering and error handling.
 
 ## Links & AI Acknowledgement
-- **Live Website:** [GitHub Pages Deployment](https://shankslegenda.github.io/finalWeb/)
-- **Repository:** [GitHub Repository](https://github.com/Shankslegenda/finalWeb)
+- **Live Website:** https://shankslegenda.github.io/finalWeb/
+- **Repository:** https://github.com/Shankslegenda/finalWeb
 - **AI Usage:** AI tools were used as supporting assistants during development for debugging and code structure guidance in accordance with the course AI Usage Policy.
 
 
